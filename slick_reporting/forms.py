@@ -218,6 +218,8 @@ class SlickReportForm(BaseReportForm):
 def _default_foreign_key_widget(f_field):
     return {
         "form_class": forms.ModelMultipleChoiceField,
+        # Working around https://code.djangoproject.com/ticket/35640
+        "to_field_name": 'pk',
         "required": False,
     }
 
